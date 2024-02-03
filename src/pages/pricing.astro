@@ -1,0 +1,78 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Pricing from "@components/pricing.astro";
+import Faq from "@components/faq.astro";
+import ComparePricing from "@components/compare-pricing.astro";
+import Cta from "@components/cta.astro";
+
+const pricing = [
+  {
+    name: "Starter",
+    price: "49",
+    desc: "Perfect for startups",
+    color: "indigo",
+    popular: false,
+    features: [
+      "Access to '/keyword-research' and '/trend/trending-topics'",
+      "Basic analytics and title optimization",
+      "Community support",
+    ],
+    button: {
+      text: "Get Started",
+      link: "/",
+    },
+  },
+  {
+    name: "Professional Plan",
+    price: "149",
+    desc: "For serious businesses",
+    popular: true,
+    color: "orange",
+    features: [
+      "All Starter features plus competitive analysis and video tags",
+      "Advanced analytics",
+      "Priority support",
+    ],
+    button: {
+      text: "Get Started",
+      link: "#",
+    },
+  },
+  {
+    name: "Enterprise Plan",
+    price: null,
+    desc: "Suitable for Enterprise solutions",
+    popular: false,
+    color: "purple",
+    features: [
+      "All Professional features plus full API access",
+      "Dedicated account manager",
+      "24/7 phone support and custom integrations",
+    ],
+    button: {
+      text: "Contact us",
+      link: "/contact",
+    },
+  },
+];
+---
+
+<Layout title="Pricing">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Pricing Strategy</Fragment>
+      <Fragment slot="desc">
+          Choose the Plan That Grows with You
+      </Fragment>
+    </Sectionhead>
+
+    <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-screen-lg mt-12">
+      {pricing.map((item) => <Pricing plan={item} />)}
+    </div>
+    <ComparePricing />
+    <Faq />
+     <Cta />
+  </Container>
+</Layout>

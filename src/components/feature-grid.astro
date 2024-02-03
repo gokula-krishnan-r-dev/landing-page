@@ -1,0 +1,111 @@
+---
+// @ts-ignore
+import { Picture, Image } from "astro:assets";
+import Card from "@components/card.astro";
+import IntegrationImg from "../assets/features/6.svg";
+import FeatureImgOne from "../assets/hero-screenshot.svg";
+import FeatureImgTwo from "../assets/features/1.svg";
+import FeatureImgThree from "../assets/features/3.svg";
+---
+
+<div class="mt-24">
+  <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+    Everything you need to <span class="text-indigo-600">start a website</span>
+  </h2>
+  <p class="text-lg mt-4 text-slate-600">
+    Astro comes batteries included. It takes the best parts of state-of-the-art
+    tools and adds its own innovations.
+  </p>
+</div>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-5 mt-16 gap-10">
+  <Card class="lg:col-span-3" color="purple">
+    <Fragment slot="image">
+      <Picture
+        src={FeatureImgOne}
+        alt="Feature image"
+        formats={["avif", "webp"]}
+        class="h-full w-full object-contain"
+        loading="lazy"
+      />
+    </Fragment>
+    <span slot="badge">Content</span>
+    <span slot="title">Content Ideation</span>
+    <span slot="desc">
+   Generate rankable content ideas to keep your audience engaged.
+    </span>
+  </Card>
+  <Card class="lg:col-span-2" color="indigo">
+    <Fragment slot="image">
+      <Picture
+        src={FeatureImgOne}
+        alt="Feature image"
+        formats={["avif", "webp"]}
+        class="h-full w-full object-contain"
+        loading="lazy"
+      />
+    </Fragment>
+    <span slot="badge">Competitive</span>
+    <span slot="title">Competitive Edge</span>
+    <span slot="desc">
+  Gain insights into your competitors’ strategies and performance.
+  </span
+    >
+  </Card>
+</div>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-3 mt-10 gap-10">
+  <Card color="indigo" size="sm">
+    <Fragment slot="image">
+      <Picture
+        src={FeatureImgThree}
+        alt="Feature image"
+        formats={["avif", "webp"]}
+        class="h-full w-full object-contain"
+        loading="lazy"
+      />
+    </Fragment>
+    <span slot="badge">Optimize</span>
+    <span slot="title">Title Mastery</span>
+    <span slot="desc">
+     Optimize your video titles for maximum impact with instant feedback and suggestions.</span
+    >
+  </Card>
+
+  <Card color="purple" size="sm">
+    <Fragment slot="image">
+      <Picture
+        src={FeatureImgTwo}
+        alt="Feature image"
+        formats={["avif", "webp"]}
+        class="h-full w-full object-contain"
+        loading="lazy"
+      />
+    </Fragment>
+    <span slot="badge">Analytics</span>
+    <span slot="title">Comprehensive Analytics</span>
+    <span slot="desc">
+Dive deep into analytics to understand and improve your channel's performance.</span
+    >
+  </Card>
+
+  <Card size="sm">
+    <Fragment slot="image">
+      <!-- // svg image. cannot use <picture/> as of now -->
+      <Image
+        src={IntegrationImg}
+        alt="Feature image"
+        width="909"
+        height="823"
+        class="h-full w-full object-contain"
+        loading="lazy"
+      />
+    </Fragment>
+    <span slot="badge">Tag</span>
+    <span slot="title">Tag Optimization</span>
+    <span slot="desc">
+    Maximize your reach with strategically suggested tags.
+      </span
+    >
+  </Card>
+</div>
